@@ -24,7 +24,6 @@ export default defineConfig(() => ({
     react(),
   ],
   nitro: {
-    preset: "static",
     prerender: {
       crawlLinks: true,
       routes: ["/", "/colecoes", "/contacto", "/exames", "/historia"],
