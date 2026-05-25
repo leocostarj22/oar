@@ -6,6 +6,7 @@ import { nitro } from "nitro/vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig(() => ({
+  base: "/oar/",
   plugins: [
     tailwindcss(),
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
@@ -22,5 +23,11 @@ export default defineConfig(() => ({
     nitro(),
     react(),
   ],
-  nitro: {},
+  nitro: {
+    preset: "static",
+    prerender: {
+      crawlLinks: true,
+      routes: ["/", "/colecoes", "/contacto", "/exames", "/historia"],
+    },
+  },
 }));
